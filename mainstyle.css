@@ -82,15 +82,21 @@ ul{
 }
 
 .project_image {
-    /*height: 90%; */
-    width:30%;
-    height:50%;
+    width:48%;
+    height:100%;
     background-color: gray;
 }
 
 .project_brief {
-    /*height: 90%; */
-    width:30%;
-    height:50%;
+    width:48%;
+    height:100%;
     background-color: darkgray;
+}
+
+.project_left{
+    float:left;
+}
+
+.project_right{
+    float:right; 
 }
