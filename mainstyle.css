@@ -73,7 +73,7 @@ ul{
 
 .project_blurb{
     display:block;
-    margin: 2vw 1vw 2vw 1vw;
+    margin: 2vw 0vw 2vw 0vw;
     padding:1vw;
     width: 50vw;
     height: 15vw;
@@ -91,7 +91,6 @@ ul{
 .project_brief {
     width:48%;
     height:100%;
-    background-color: darkgray;
 }
 
 .project_left{
