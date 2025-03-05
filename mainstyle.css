@@ -70,3 +70,27 @@ ul{
 .hidden {
     color:white;
 }
+
+.project_blurb{
+    display:block;
+    margin-left: 1vw;
+    padding:1vw;
+    width: 50vw;
+    height: 20vw;
+    background-color: lightgray;
+
+}
+
+.project_image {
+    /*height: 90%; */
+    width:30%;
+    height:50%;
+    background-color: gray;
+}
+
+.project_brief {
+    /*height: 90%; */
+    width:30%;
+    height:50%;
+    background-color: darkgray;
+}
