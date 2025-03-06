@@ -11,13 +11,13 @@ body{
 h1,h2,h3{line-height:1.2}
 
 div{padding-bottom: 10px;}
-
+/* 
 a {
     font-family: Open Sans,Arial;
     color:#121212;
     color:gray;
     font-size: 1.15vw;
-}
+} */
 
 a:link { text-decoration: none; }
 
@@ -25,8 +25,8 @@ a:visited { text-decoration: none; }
 
 a:active { text-decoration: none; }
 
-a:hover{
-    color:#bb86fc;
+.inline:hover{
+    color: #e0a1ad;
 }
 
 ul{
@@ -37,9 +37,6 @@ ul{
     display: inline-block;
     line-height: 0;
     padding:0%;
-}
-.inline:hover{
-    background-color: black;
 }
 
 .pl{
@@ -74,6 +71,10 @@ ul{
     color:white;
 }
 
+.text{
+    color:rgb(249, 249, 249);
+}
+
 .project_blurb{
     border-radius: 1vw;
     display:block;
@@ -83,10 +84,11 @@ ul{
     width: 92%;
     height: 15vw;
     background-color: rgb(45,45,48);
+    color:rgb(249, 249, 249);
 }
 
 .project_blurb:hover{
-    background-color: rgb(62,62,66);
+    background-color: rgb(50,50,53);
 }
 
 .project_element{
