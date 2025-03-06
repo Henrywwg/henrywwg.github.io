@@ -91,7 +91,11 @@ ul{
 
 .project_img{
     text-align: center;
-    
+}
+
+img{
+    border-radius: 0.5vw;
+
 }
 
 .project_left{
