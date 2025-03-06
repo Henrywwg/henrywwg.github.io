@@ -16,7 +16,7 @@ a {
     font-family: Open Sans,Arial;
     color:#121212;
     color:gray;
-
+    font-size: 1.15vw;
 }
 
 a:link { text-decoration: none; }
@@ -49,6 +49,7 @@ ul{
 
 .body{
     max-width: 60vw;
+    min-width: 800px;
     margin:4% auto;
     min-height: 80svh;
 
@@ -59,6 +60,7 @@ ul{
     font-size: 1.15vw;
     color: #cf6679;
     padding-right: 5%;
+    margin-left: 1vw;
 }
 
 .centered {
@@ -75,12 +77,16 @@ ul{
 .project_blurb{
     border-radius: 1vw;
     display:block;
-    margin: 2vw auto 2vw auto;
+    margin: 2% auto;
     padding:2%;
     min-width: none;
     width: 92%;
     height: 15vw;
     background-color: rgb(45,45,48);
+}
+
+.project_blurb:hover{
+    background-color: rgb(62,62,66);
 }
 
 .project_element{
@@ -115,7 +121,7 @@ img{
     width:100%;
     height:3vw;
     float:left;
-    font-size: 0.8vw;
+    font-size: 100%;
 }
 
 .header{
