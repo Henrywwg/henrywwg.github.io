@@ -36,6 +36,22 @@
                     phone 'VR' headset, slap in a 5.5" display and then hook that up to a Raspberry Pi to do the actual image processing. Unfortunately, the whole HUD assembly is too large
                     to fit into the helmet/head so some resizing and reshaping will be necessary to actually get everything working.
                 </p>
+                <br><br>
+                <p>If you're curious about the parts I'm using and their applications in the project heres a quick BOM:</p>
+                <dl>
+                    <dt>Raspberry Pi</dt>
+                    <dd>Image processing and potentially LED driving</dd>
+                    <dt>ESP32 w/ Arduino bootloader (To be replaced with Cortex mcu)</dt>
+                    <dd>LED Matrix driver</dd>
+                    <dt>5.5" Display + Phone VR Headset</dt>
+                    <dd>HUD element for stereo image display</dd>
+                    <dt>2x Portable batteries/ chargers</dt>
+                    <dd>Project power (currently not enough current to drive everything though D:)</dd>
+                </dl>
+                <br>    
+                <p>That's actually kind of it for the project! It's rather simple component wise (but will set you back a bit). The complexity really lies in the software and 
+                    writing firmware to drive various components along with wiring everything up and resizing components.
+                </p>
             </div>
         </div>
         <!-- Bottom of page footer  -->
