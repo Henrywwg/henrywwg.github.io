@@ -147,3 +147,11 @@ img{
     background-color: rgb(45,45,48);
     color:rgb(249, 249, 249);
 }
+
+.caption_box{
+    background-color: rgb(37,37,38);
+    border-radius: 1vw;
+    padding:2%;
+    width: 20vw;
+    text-align:center;
+}
