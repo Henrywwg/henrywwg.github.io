@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Proot HUD</title>
+        <link rel="stylesheet" href="/mainstyle.css">
+        <link rel="icon" type="image/x-icon" href="/pictures/cg_300nm.png">
+    </head>
+
+    <body>
+        <div class="body">
+            <header>
+                <h1><a style="color:gray;" href="/projects/project.html">Projects > </a>Protogen HUD</h1>
+            </header>
+
+            <nav class="header">
+                <a class="largea inline" href="/index.html"><b>Home</b></a>
+                <a class="largea inline" href="/projects/project.html"><b>Projects</b></a>
+                <a class="largea inline" href="/archive/archive.html"><b>Archive</b></a>
+                <a class="largea inline" href="/pictures/pictures.html"><b>Pictures</b></a>
+            </nav>
+
+            <article style="align-items: center;" class="page_content">
+                <p>For a while I've wanted to make a HUD style wearable display, but have never really had a use for one. So when I thought about making a Protogen head 
+                    (which is a sort of robot-dog if you will) I finally had a use for it. Because 'Protogen' is annoying to type I'll just abridge it as 'proot'.
+                </p>
+                <div class="caption_box centered">
+                    <img style="height: 20vw" alt="White phone VR headset" src="/pictures/HUD.jpg">
+                </div>
+                <p>
+                    The biggest problem with the proot helmet is the limited visibility from having a visor in front of your face that is packed full of electronics - it's hot and confined.
+                    <br><br> So the ability to mount some cameras on the outside, and then be able to stream that into the helmet to give you more visibility seems reallly nice. But the 
+                    biggest problem remains that theres no space in that darn helmet and has been the main restriction with this project. My solution so far has been to take an off the shelf 
+                    phone 'VR' headset, slap in a 5.5" display and then hook that up to a Raspberry Pi to do the actual image processing. Unfortunately, the whole HUD assembly is too large
+                    to fit into the helmet/head so some resizing and reshaping will be necessary to actually get everything working.
+                </p>
+                <br><br>
+                <p>If you're curious about the parts I'm using and their applications in the project heres a quick BOM:</p>
+                <dl>
+                    <dt>Raspberry Pi</dt>
+                    <dd>Image processing and potentially LED driving</dd>
+                    <dt>ESP32 w/ Arduino bootloader (To be replaced with Cortex mcu)</dt>
+                    <dd>LED Matrix driver</dd>
+                    <dt>5.5" Display + Phone VR Headset</dt>
+                    <dd>HUD element for stereo image display</dd>
+                    <dt>2x Portable batteries/ chargers</dt>
+                    <dd>Project power (currently not enough current to drive everything though D:)</dd>
+                </dl>
+                <br>    
+                <p>That's actually kind of it for the project! It's rather simple component wise (but will set you back a bit). The complexity really lies in the software and 
+                    writing firmware to drive various components along with wiring everything up and resizing components.
+                </p>
+            </article>
+        </div>
+        <!-- Bottom of page footer  -->
+
+        <div class="footer">
+            <p>Designed following the principles of <b><a href="http://bettermotherfuckingwebsite.com" style="color:gray;">bettermfwebsite.com</a></b></p>
+        </div>
+    </body>
+</html>
