@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="index, follow">
         <meta name="keywords" content="AUP-ZU3, FPGA, ECE554, ECE 554, Hardware Accelerator, Hardware Acceleration, Gesture Recognition, UW-Madison, University of Wisconsin-Madison, Senior Design, Senior Project, Computer Architecture, Computer Systems, Embedded Systems, Heterogeneous SoC, System on Chip, Co-Design">
-        <title>Projects</title>
+        <title>Gesture Accelerator Hardware</title>
         <link rel="stylesheet" href="/mainstyle.css">
         <link rel="icon" type="image/x-icon" href="./pictures/cg_300nm.png">
     </head>
@@ -14,7 +14,7 @@
     <body>
         <div class="body">
             <header>
-                <h1>Projects</h1>
+                <h1><a style="color:gray;" href="/projects/project.html">Projects ></a> ECE 554</h1>
             </header>
             
             <nav class="header">
@@ -28,6 +28,10 @@
         <!-- Start of content  -->
 
         <!-- Descriptions of projects with links  -->
+            <h2>ECE 554</h2>
+            <p>
+                There were a couple big things I worked on for this project worthy of a little 'branch' of its own.
+            </p>
             <article style="align-items: center;">
 
                 <!--      ECE554      -->
@@ -36,12 +40,14 @@
                         <div class="project_element">
                             <h2 class="pl">AXI4-Stream Hardware Downscaling</h2>
                             <p>
-                                Here's the main show - the downscaler!    
+                                As part of finishing up my B.S. in Computer Engineering, I did a Senior Design/Capstone project (ECE554). 
+                                A major part of my team's project was gesture acceleartion so I designed a hardware-accelerated image downscaling pipeline that was... a really
+                                doozy. Uses a parameterizable (try saying that few times fast), self-pipelining adder tree to interpolate and downscale live frames.   
                             </p>
                         </div>
                         
                         <div class="project_element project_img">
-                            <img style="height: 100%" alt="Diagram of gesture acceleration hardware" src="/pictures/parameterizable_downscaler.webp">
+                            <img style="height: 100%" alt="Diagram of gesture acceleration hardware" src="/pictures/helmet.jpg">
                         </div>
                     </div>
                 </a>
@@ -49,21 +55,25 @@
 
 
                 <!--      PCAM      -->
-                <a href="/projects/projects/hud.html" class="text">
+                <a href="https://github.com/Henrywwg/pcam5" class="text">
                     <div class="project_blurb right">
                         <div class="project_element">
                             <h2 class="pl">PCAM5-C Interfacing</h2>
                             <p>
-                                This one's part of a 'cosplay' so it's a personal favorite. A whole slew of parts 
-                                including microcontrollers, mini-computers (Rasp. Pi) and lots of discrete electronics
-                                 has made this an increasingly involved endeavor. Also had some fun playing with stereo 
-                                 cameras and displays for the HUD. I'm hoping to get off Arduino MCUs and switch over 
-                                 to a Cortex board soon.
+                                Getting a camera to spit out pixels is a deceptively hard process.
+                                The whole process is described in the linked repo, but configuring this camera 
+                                and half-court shooting frames into a VDMA IP is best described as "suitably miffing".
+                                <br><br>
+                                Constantly crashing the AXI-Lite bus every time you look at the FPGA the 
+                                wrong way and constantly just hoping that your register map (based on someone's 
+                                deprecated 5 year old project) just works...<br><br>
+                                <i>and now it does!</i> <br><br>
+                                > pic related
                             </p>
                         </div>
                         
                         <div class="project_element project_img">
-                            <img style="height: 100%" alt="Picture of part of a helmet with LED matrices" src="/pictures/proot.jpg">
+                            <img style="height: 100%" alt="Calvin's dad can cook." src="/pictures/ch_cooking.jpg">
                         </div>
                     </div>
                 </a>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home</title>
         <link rel="stylesheet" href="mainstyle.css">
-        <link rel="icon" type="image/x-icon" href="./pictures/cg_300nm.png">
+        <link rel="icon" type="image/x-icon" href="/pictures/cg_300nm.png">
     </head>
 
     <body>
@@ -20,62 +20,83 @@
                 <a class="largea inline" href="/projects/project.html"><b>Projects</b></a>
                 <a class="largea inline" href="/archive/archive.html"><b>Archive</b></a>
                 <a class="largea inline" href="/pictures/pictures.html"><b>Pictures</b></a>
+                <a class="largea inline" href="https://github.com/henrywwg"><b>GitHub (ext)</b></a>
             </nav>
 
         <!-- Start of content  -->
 
         <!-- Descriptions of projects with links  -->
-            <h2 >Featured Projects</h2>
-            <p>This is a little showcase of some of my more recent and/or interesting projects. It's a good mix of personal and school or work projects so 
-                if you're interested in computer architecture, cosplay and hobbyist computing projects or materials science (strange mix I know) then have a look around!</p>
+            <h2>Cool Stuff</h2>
+            <p>
+                <b>Hello!</b>
+                I'm Freya (Henry). I'm a digital hardware, 'wearables' and general engineering nerd. 
+                I work at UW-Madison right now as a research intern (pre-grad-student? Candidate? who knows) studying low energy IoT sensing platforms for agriculture. 
+                
+            </p>
             <article style="align-items: center;">
-                <a href="/projects/projects/risc-wisc.html" class="text">
-                    <div class="project_blurb">
-                        <div class="project_element project_left project_img">
-                            <img style="height: 100%" class=" " alt="Storefront of QQ Express" src="/pictures/qq.png">
-                        </div>
-                        <div class="project_element project_right">
+
+                <!--      ECE554      -->
+                <a href="/projects/projects/ece554.html" class="text">
+                    <div class="project_blurb left">
+                        <div class="project_element">
+                            <h2 class="pl">ECE 554 Senior Design</h2>
                             <p>
-                                <b>RISC Processor</b><br>
-                                An in order five-stage pipelined single core WISC-F24 based processor. 
-                                This neat little project involved iteratively developing the processor starting from a single cycle design, then working up to pipelining. 
-                                We also designed and wrote in a cache to represent more realistic imperfect memory.
+                                As part of finishing up my B.S. in Computer Engineering, I did a Senior Design/Capstone project (ECE554). 
+                                A major part of my team's project was gesture acceleration so I designed a hardware-accelerated image downscaling pipeline that was... a really
+                                doozy. Uses a parameterizable (try saying that few times fast), self-pipelining adder tree to interpolate and downscale live frames.   
                             </p>
+                        </div>
+                        
+                        <div class="project_element project_img">
+                            <img style="height: 100%" alt="Diagram of gesture acceleration hardware" src="/pictures/helmet.jpg">
                         </div>
                     </div>
                 </a>
+                <!--     END ECE554      -->
 
+
+                <!--      PROOT      -->
                 <a href="/projects/projects/hud.html" class="text">
-                    <div  class="project_blurb">
-                        <div class="project_element project_right project_img">
-                            <img style="height: 100%" alt="Picture of part of a helmet with LED matrices" src="./pictures/proot.jpg">
-                        </div>
-                        <div class="project_element project_left">
+                    <div class="project_blurb right">
+                        <div class="project_element">
+                            <h2 class="pl">Proot HUD (Old)</h2>
                             <p>
-                                <b>Protogen HUD</b><br>
-                                This one's part of a 'cosplay' so it's a personal favorite. A whole slew of parts including microcontrollers, mini-computers 
-                                (Rasp. Pi) and lots of discrete electronics has made this an increasingly involved endeavor. Also had some fun playing with stereo cameras and displays for the HUD. 
-                                I'm hoping to get off Arduino MCUs and switch over to a Cortex board soon.
+                                This one's part of a 'cosplay' so it's a personal favorite. A whole slew of parts 
+                                including microcontrollers, mini-computers (Rasp. Pi) and lots of discrete electronics
+                                 has made this an increasingly involved endeavor. Also had some fun playing with stereo 
+                                 cameras and displays for the HUD. I'm hoping to get off Arduino MCUs and switch over 
+                                 to a Cortex board soon.
                             </p>
+                        </div>
+                        
+                        <div class="project_element project_img">
+                            <img style="height: 100%" alt="Picture of part of a helmet with LED matrices" src="/pictures/proot.jpg">
                         </div>
                     </div>
                 </a>
+                <!--     END PROOT      -->
 
-                <a href="/archive/projects/la.html" class="text">
-                    <div class="project_blurb">
-                        <div class="project_element project_left project_img">
-                            <img style="height: 100%" class = "" alt="Waveforms shown in vsim from the LA project" src="./pictures/LA_waves.jpg">
-                        </div>
-                        <div class="project_element project_right">
+                <!--      PROOT      -->
+                <a href="/projects/projects/hud.html" class="text">
+                    <div class="project_blurb left">
+                        <div class="project_element">
+                            <h2 class="pl">Proot HUD</h2>
                             <p>
-                                <b>FPGA Logic Analyzer</b><br>
-                                This one was a doozy. 400MHz 5 channel digital logic analyzer with capture and storage abilities.
-                                Wrote and tested a dozen or so modules ranging from SPI and UART to a proprietary processor to manage data acquisition and communication.
-                                Pictured on the left is a modicum of the <del>fun</del> horror that was writing testbenches and fixing bugs for this project.
+                                This one's part of a 'cosplay' so it's a personal favorite. A whole slew of parts 
+                                including microcontrollers, mini-computers (Rasp. Pi) and lots of discrete electronics
+                                 has made this an increasingly involved endeavor. Also had some fun playing with stereo 
+                                 cameras and displays for the HUD. I'm hoping to get off Arduino MCUs and switch over 
+                                 to a Cortex board soon.
                             </p>
+                        </div>
+                        
+                        <div class="project_element project_img">
+                            <img style="height: 100%" alt="Picture of part of a helmet with LED matrices" src="/pictures/proot.jpg">
                         </div>
                     </div>
                 </a>
+                <!--     END PROOT      -->
+
             </article>
         </div>
 

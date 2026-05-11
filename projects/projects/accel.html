@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta name="keywords" content="AUP-ZU3, FPGA, ECE554, ECE 554, Hardware Accelerator, Hardware Acceleration, Gesture Recognition, UW-Madison, University of Wisconsin-Madison, Senior Design, Senior Project, Computer Architecture, Computer Systems, Embedded Systems, Heterogeneous SoC, System on Chip, Co-Design">
+        <title>Gesture Accelerator Hardware</title>
+        <link rel="stylesheet" href="/mainstyle.css">
+        <link rel="icon" type="image/x-icon" href="./pictures/cg_300nm.png">
+    </head>
+
+    <body>
+        <div class="body">
+            <header>
+                <h1><a style="color:gray;" href="/projects/project.html">Projects ></a> HW Downscaler</h1>
+            </header>
+            
+            <nav class="header">
+                <a class="largea inline" href="/index.html"><b>Home</b></a>
+                <a class="largea inline" href="/projects/project.html"><b>Projects</b></a>
+                <a class="largea inline" href="/archive/archive.html"><b>Archive</b></a>
+                <a class="largea inline" href="/pictures/pictures.html"><b>Pictures</b></a>
+                <a class="largea inline" href="https://github.com/henrywwg"><b>GitHub (ext)</b></a>
+            </nav>
+
+        <!-- Start of content  -->
+
+        <!-- Descriptions of projects with links  -->
+
+            <article class="page_content"> 
+                <h2><i> Downscaler</i></h2>
+
+                <div class="caption_box centered">
+                    <img style="width: 100%" alt="Block diagram of the FAST-AR accelerator." src="/pictures/pl_work.webp">
+                </div>
+                    <h3>Hardware-Accelerated Video Downscaler</h3>
+
+                <p>
+                    To run the MediaPipe gesture recognition model efficiently on the Zynq Processing System, the 1080p camera feed must be downscaled to a 
+                    224x224 RGB format. Rather than relying on the ARM CPU for image processing, we implemented a custom RTL downscaler in the FPGA fabric 
+                    to handle this step prior to memory storage.
+                </p>
+
+            
+                <!--      DIAGRAM      -->           
+                    <div class="project_blurb left">
+                        <div class="project_element">
+                            <h2 class="pl">Hardware Flow Diagram</h2>
+                            <p>
+                                Here we can see the abstracted view of the hardware/PL design. Generally, A MIPI CSI camera (PCAM5) clocked at 200MHz feeds into a 
+                                demosaic module (Vivado IP) converting the raw bayer data into standard RGB. Here, the data stream splits. One stream is grayscaled,
+                                while the other stream remains RGB. The RGB stream is then fed into the <b>downscaler (detailed below)</b> while the grayscale stream
+                                is sent to the mDP output to aid framing the camera feed for the user.
+                            </p>
+                        </div>
+                        
+                        <div class="project_element project_img">
+                            <img src="/pictures/fastar_arch_cropped.webp" alt="Hardware Block Diagram">
+                        </div>
+                    </div>
+                <!--      END DIAGRAM      -->           
+
+                <div class="caption_box centered">
+                    <img style="width: 100%" src="/pictures/parameterizable_downscaler.webp" alt="Diagrammatic view of the downscaler operation/theory.">
+                </div>
+                <h3>Architecture and Data Flow</h3>
+                <p>
+                     
+
+
+                    &emsp;
+                    The downscaler sits directly in the camera's AXI-Stream pipeline allowing us to avoid costly buffering in main memory until the final frame is ready.<br>
+                    <b>Input:</b> Raw 1080p video streamed directly from the camera sensor at a ~75MHz pixel clock. <br> 
+                    <b>Output:</b> A 224x224 RGB frame (~150 KB) written to a /dev/shm RAM disk via a Video Direct Memory Access (VDMA) block.<br>
+                    <b>Logic:</b> The module utilizes a parameterizable adder tree for the downscaling math, requiring zero DSP slices. 
+                </p>
+                <br><h3>Processing and Latency</h3>
+                <p>
+                    &emsp;The downscaler's fabric is clocked at 200MHz giving us a theoretical compute time per frame of around 75 µs based solely on logic. Because we have to wait
+                    for the camera to stream in the pixels we are effectively limiting our processing time to around 33 ms due to the effective 75 MHz pixel clock. 
+                    Additionally, since we do a fixed crop of only around the top 4/5's of the frame (since we crop only until the bottom 92 pixels), the compute is fully
+                    hidden within the camera's streaming time. Once the last line is processed <code>tlast</code> is asserted, <code>tvalid</code> is deasserted and the frame is committed to memory. 
+                </p>    
+                <br><h3>Software vs. Hardware Comparison</h3>
+                <ul>
+                    <li><b>Hardware Pipeline:</b> The camera reads in data at approximately 75MHz, but the hardware only requires the first 4/5th's of the frame
+                        to produce a properly downscaled 224x224 frame. This all happens in approximately 22.11 ms. <br><i>(1920px * 1080px * (4/5)) /75MHz = <b>22.11 ms</b>. </i><br>The processing time of the downscaler is around 
+                        76 us total, but since it happens sequentially in the stream, we effectively hide the entire latency in the slower 75MHz camera stream. This means
+                        that we only use around 22 ms, along with the overhead of a single DRAM write of a small 224x224 image to save the final frame.
+                    </li>   <br><br>
+
+                    <li><b>Estimated Software Pipeline:</b> A standard software implementation would require the full 1080p frame to be buffered first in main memory 
+                    (taking around 33ms to do so), before CPU downscaling can be performed, after which the downscaled frame can be committed to memory. This requires 
+                    a total of 2 RAM writes (one for the full frame, one for the downscaled frame) and additional CPU overhead for downscaling.</li><br><br>
+                </ul>
+                <p>    
+                    Based on this analytical comparison, we can see that the hardware pipeline is <i>much</i> faster than a standard software implementation since, while
+                    the HW based approach relies on a single 224x224 RAM write (plus negligible processing time), the software approach requires a full 1080p frame 
+                    RAM write, non-negligible downscaling time and then a second RAM write for the final frame. The HW approach saves us extra RAM writes and CPU overhead.
+                </p>
+
+            </article>
+        </div>
+
+        <!-- End of content  -->
+        <!-- Bottom of page footer  -->
+
+        <div class="footer">
+            <p>Designed following the principles of <b><a href="http://bettermotherfuckingwebsite.com">bettermfwebsite.com</a></b></p>
+        </div>
+    </body>
+
+</html>
